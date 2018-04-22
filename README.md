@@ -40,3 +40,15 @@ The above code will print both `hello world` and `bye world`.
 ```
 $txt = "Hello world!";
 ```
+
+## Data types:
+
+- PHP has 8 primitive data types.
+  * Integer
+  * String
+  * Float (also called double)
+  * Boolean
+  * Array
+  * Object
+  * NULL
+  * Resource
