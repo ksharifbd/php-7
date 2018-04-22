@@ -28,3 +28,15 @@ The above code will print both `hello world` and `bye world`.
   second line.
 */
 ```
+
+## Variable:
+
+- PHP variables start with the $ sign followed by the variable name.
+- The value of an unassigned variable is null.
+- A valid variable name starts with a letter or an underscore followed by any combination of letters, numbers, and/or underscores.
+- It is case sensitive. So, `$home` and `$Home` are two different variables.
+
+### Example:
+```
+$txt = "Hello world!";
+```
