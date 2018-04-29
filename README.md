@@ -179,3 +179,27 @@ There 9 types of comparison operators
   var_dump(!false); // true
 ?>
 ```
+
+### Incrementing and Decrementing Operators:
+
+- they only work on variables
+
+There are 4 types of these operators-
+
+- (+=)
+- (-=)
+- (++)
+- (--)
+
+#### Example:
+```php
+$a = 2;
+$b = $a++;
+
+var_dump($a, $b);
+
+/*
+The operator on the right will return first the value of $a, which is 2, assign it to $b, and only then
+increase $a by 1
+*/
+```
