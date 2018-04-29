@@ -162,3 +162,20 @@ There 9 types of comparison operators
   var_dump($a <> $c); // true
 ?>
 ```
+
+### Logical Operators:
+
+- or (||)
+- and (&&)
+- not (!)
+
+#### Example:
+```php
+<?php
+  var_dump(true && true); // true
+  var_dump(true && false); // false
+  var_dump(true || false); // true
+  var_dump(false || false); // false
+  var_dump(!false); // true
+?>
+```
