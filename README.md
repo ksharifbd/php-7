@@ -203,3 +203,47 @@ The operator on the right will return first the value of $a, which is 2, assign 
 increase $a by 1
 */
 ```
+
+### Operator Precedence:
+
+The following table shows the order of precedence in the descending order-
+
+| Operator                       | Type                  |
+| :----------------------------: | :-------------------: |
+| **                             | Arithmetic            |
+| ++, --                         | Increasing/decreasing |
+| !                              | Logical               |
+| \*, /, %                       | Arithmetic            |
+| +, -                           | Arithmetic            |
+| <, <=, >, >=                   | Comparison            |
+| ==, !=, ===, !==               | Comparison            |
+| &&                             | Logical               |
+| ||                             | Logical               |
+| =, +=, -=, *=, /=, %=, \**=    | Assignment            |
+
+- To perform operations in a specific order, different from the natural order of precedence, enclose the operation within parentheses.
+
+### Strings:
+
+- Strings can be concatenated using `(.)` operator.
+- Single quotes `('')` represents strings as it is.
+- Double quotes `("")` applies `Escape Characters` and `Variable Expanding`.
+
+#### Example:
+```php
+// Concatenation
+$firstname = 'Hiro';
+$surname = 'Nakamura';
+echo 'I am ' . $firstname . ' ' . $surname . '!';
+
+// Quotes
+$firstname = 'Hiro';
+$surname = 'Nakamura';
+echo "My name is $firstname $surname.\nI am a master of time and
+space. \"Yatta!\"";
+
+/*
+  My name is Hiro Nakamura.
+  I am a master of time and space. "Yatta!"
+*/
+```
