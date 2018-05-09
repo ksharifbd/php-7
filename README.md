@@ -223,13 +223,13 @@ The following table shows the order of precedence in the descending order-
 
 - To perform operations in a specific order, different from the natural order of precedence, enclose the operation within parentheses.
 
-### Strings:
+## Strings:
 
 - Strings can be concatenated using `(.)` operator.
 - Single quotes `('')` represents strings as it is.
 - Double quotes `("")` applies `Escape Characters` and `Variable Expanding`.
 
-#### Example:
+### Example:
 ```php
 // Concatenation
 $firstname = 'Hiro';
@@ -247,3 +247,15 @@ space. \"Yatta!\"";
   I am a master of time and space. "Yatta!"
 */
 ```
+
+## Arrays:
+
+- a PHP array is different from a similarly-named construct most other programming languages.
+- What differentiates PHP arrays from those of other languages is that they aren’t exclusively a list-like data type. In PHP, there are what is called “associative arrays”, which can be linked “keys” to “values”. 
+- An array in PHP is actually an ordered map.
+- Even Non-Indexed Arrays Have Indexes
+
+### Declaring Arrays:
+
+- A PHP array can be declared using `Short Array syntax - []` or `array()` function.
+- For PHP version 5.4 and above the two syntaxes are identical.
