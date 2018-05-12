@@ -253,9 +253,77 @@ space. \"Yatta!\"";
 - a PHP array is different from a similarly-named construct most other programming languages.
 - What differentiates PHP arrays from those of other languages is that they aren’t exclusively a list-like data type. In PHP, there are what is called “associative arrays”, which can be linked “keys” to “values”. 
 - An array in PHP is actually an ordered map.
-- Even Non-Indexed Arrays Have Indexes
+- Even Non-Indexed Arrays Have Indexes.
+- Arrays are not immutable.
 
-### Declaring Arrays:
+### Initializing Arrays:
 
 - A PHP array can be declared using `Short Array syntax - []` or `array()` function.
 - For PHP version 5.4 and above the two syntaxes are identical.
+- Arrays can be initialized empty or with data.
+- Keys of an array can be any alphanumeric value, like strings or numbers. Values of an array can be anything: strings, numbers, Booleans, other arrays, and so on.
+
+#### Example:
+```php
+// Initializing Empty array
+$empty1 = [];
+$empty2 = array();
+
+// Initializing with data
+$names1 = ['Harry', 'Ron', 'Hermione'];
+$names2 = array('Harry', 'Ron', 'Hermione');
+
+// More example
+$status1 = [
+'name' => 'James Potter',
+'status' => 'dead'
+];
+
+$status2 = array(
+'name' => 'James Potter',
+'status' => 'dead'
+);
+
+$books = [
+  '1984' => [
+  'author' => 'George Orwell',
+  'finished' => true,
+  'rate' => 9.5
+  ],
+
+  'Romeo and Juliet' => [
+  'author' => 'William Shakespeare',
+  'finished' => false
+  ]
+];
+```
+
+### Adding elements to the Array:
+
+- The content of an array can be changed either by treating it as a map or as a list.
+- Treating it as a map means specifying the key that is to be overridden, whereas treating it as a list means appending another element to the end of the array.
+
+#### Example:
+```php
+$names = ['Harry', 'Ron', 'Hermione'];
+$status = [
+'name' => 'James Potter',
+'status' => 'dead'
+];
+
+$names[] = 'Neville';
+$status['age'] = 32;
+```
+
+### Removing elements from an Array:
+
+- `unset` function removes an element from the array.
+
+```php
+$status = [
+'name' => 'James Potter',
+'status' => 'dead'
+];
+
+unset($status['status']);
+```
