@@ -302,6 +302,8 @@ $books = [
 
 - The content of an array can be changed either by treating it as a map or as a list.
 - Treating it as a map means specifying the key that is to be overridden, whereas treating it as a list means appending another element to the end of the array.
+- - Any key can be added to a given array, even if it previously consisted of numeric entries.
+- When trying to append a value, PHP inserts it after the last numeric key.
 
 #### Example:
 ```php
@@ -326,4 +328,17 @@ $status = [
 ];
 
 unset($status['status']);
+```
+### Accessing arrays:
+
+- Accessing an array is as easy as specifying the key.
+- The first key is always 0; so, an array with n elements will have keys from 0 to n-1.
+- Any part of the array can be printed by specifying its key.
+- Trying to access a key that does not exist in an array will **return a null and throw a notice**, as PHP identifies something is done that is wrong in the code.
+
+```php
+$names = ['Harry', 'Ron', 'Hermione'];
+
+print_r($names[1]); // prints 'Ron'
+var_dump($names[4]); // null and a PHP notice
 ```
