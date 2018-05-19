@@ -342,3 +342,53 @@ $names = ['Harry', 'Ron', 'Hermione'];
 print_r($names[1]); // prints 'Ron'
 var_dump($names[4]); // null and a PHP notice
 ```
+## Functions:
+
+- PHP does not support overloaded functions. Overloading refers to the ability of declaring two or more functions with the same name but different arguments.
+- The scope of variables declared inside the function is just the function itself. Furthermore, if a variable is declared outside the function, it would not be affected at all since the function cannot access that variable unless we send it as an argument.
+
+### Example:
+```php
+  function addNumbers($a, $b) {
+    $sum = $a + $b;
+    return $sum;
+  }
+
+  $result = addNumbers(2, 3);
+```
+
+- A function may contain optional arguments. When declaring the function, a default value need to be provided for those arguments. So, in case the user does not provide a value, the function will use the default one.
+
+### Example:
+```php
+  function addNumbers($a, $b, $printResult = false) {
+    $sum = $a + $b;
+    if ($printResult) {
+      echo 'The result is ' . $sum;
+    }
+    return $sum;
+  }
+  
+  $sum1 = addNumbers(1, 2);
+  $sum1 = addNumbers(3, 4, false);
+  $sum1 = addNumbers(5, 6, true); // it will print the result
+```
+
+- PHP7 allows to specify the type of argument that the function needs (type hinting), and the type of result the function will return (return type).
+
+### Example:
+```php
+  function addNumbers(int $a, int $b, bool $printSum): int {
+    $sum = $a + $b;
+    
+    if ($printSum) {
+      echo 'The sum is ' . $sum;
+    }
+    
+    return $sum;
+  }
+
+  addNumbers(1, 2, true);
+  addNumbers(1, '2', true); // it fails when strict_types is 1
+  addNumbers(1, 'something', true); // it always fails
+```
