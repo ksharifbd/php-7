@@ -392,3 +392,30 @@ var_dump($names[4]); // null and a PHP notice
   addNumbers(1, '2', true); // it fails when strict_types is 1
   addNumbers(1, 'something', true); // it always fails
 ```
+
+## Object Oriented Programming (OOP):
+
+### Classes & Objects:
+
+- A class is the definition of what an object looks like and what it can do, like a pattern for objects.
+- A class is defined by the keyword class followed by a valid class name—that follows the same rules as any other PHP label, like variable names—and a block of code.
+```php
+  class Book {
+  }
+
+  class Customer {
+  }
+```
+
+- Objects are representations of real-life elements. Each object has a set of attributes that differentiates it from the rest of the objects of the same class, and is capable of a set of actions.
+- If we want to have a specific book, that is, an object Book—or instance of the class Book—we have to instantiate it. 
+- To instantiate an object, we use the keyword new followed by the name of the class. 
+- We assign the instance to a variable, as if it was a primitive type.
+- We can create as many instances as we need, as long as we assign them to different variables.
+```php
+  $book = new Book();
+  $customer = new Customer();
+
+  $book1 = new Book();
+  $book2 = new Book();
+```
