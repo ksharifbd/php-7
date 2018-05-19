@@ -399,6 +399,8 @@ var_dump($names[4]); // null and a PHP notice
 
 - A class is the definition of what an object looks like and what it can do, like a pattern for objects.
 - A class is defined by the keyword class followed by a valid class name—that follows the same rules as any other PHP label, like variable names—and a block of code.
+
+#### **Example:**
 ```php
   class Book {
   }
@@ -412,6 +414,8 @@ var_dump($names[4]); // null and a PHP notice
 - To instantiate an object, we use the keyword new followed by the name of the class. 
 - We assign the instance to a variable, as if it was a primitive type.
 - We can create as many instances as we need, as long as we assign them to different variables.
+
+#### **Example:**
 ```php
   $book = new Book();
   $customer = new Customer();
