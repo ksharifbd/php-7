@@ -423,3 +423,66 @@ var_dump($names[4]); // null and a PHP notice
   $book1 = new Book();
   $book2 = new Book();
 ```
+
+### Class Properties:
+
+- Class properties are like variables inside the class.
+- Property takes the type of the value assigned.
+- When creating multiple instances of an object and assigning values to their properties, each object will have their own values.
+
+#### **Example:**
+```php
+  class Book {
+    public $isbn;
+    public $title;
+    public $author;
+    public $available;
+  }
+
+  $book = new Book();
+ 
+  $book->title = "1984";
+  $book->author = "George Orwell";
+  $book->available = true;
+  
+  var_dump($book);
+```
+
+### Class Methods:
+
+- Methods are functions defined inside a class.
+- Like functions, methods get some arguments and perform some actions, optionally returning a value.
+- The advantage of methods is that they can use the properties of the object that invoked them.
+- `$this` represents the object itself, and allows to access the properties and methods of that same object.
+
+#### **Example:**
+```php
+  class Book {
+    public $isbn;
+    public $title;
+    public $author;
+    public $available;
+    
+    public function getCopy(): bool {
+      if ($this->available < 1) {
+        return false;
+      } else {
+        $this->available--;
+        return true;
+      }
+    }
+  }
+
+  $book = new Book();
+  
+  $book->title = "1984";
+  $book->author = "George Orwell";
+  $book->isbn = 9785267006323;
+  $book->available = 12;
+  
+  if ($book->getCopy()) {
+    echo 'Here, your copy.';
+  } else {
+    echo 'I am afraid that book is not available.';
+  }
+```
