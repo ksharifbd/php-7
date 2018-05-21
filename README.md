@@ -486,3 +486,34 @@ var_dump($names[4]); // null and a PHP notice
     echo 'I am afraid that book is not available.';
   }
 ```
+
+### Class Constructors:
+
+- Constructors are functions that are invoked when someone creates a new instance of the class.
+- They look like normal methods, with the exception that their name is always `__construct`, and that they do not have a return statement, as they always have to return the new instance.
+- As a constructor is still a function, it can use default arguments.
+
+#### **Example:**
+```php
+  public function __construct(
+    int $isbn,
+    string $title,
+    string $author,
+    int $available = 0
+  ) {
+    $this->isbn = $isbn;
+    $this->title = $title;
+    $this->author = $author;
+    $this->available = $available;
+  }
+  
+  $book1 = new Book("1984", "George Orwell", 9785267006323, 12);
+  $book2 = new Book("1984", "George Orwell", 9785267006323);
+```
+
+### Magic Methods:
+
+- Magic Methods are a special group of methods that have a different behavior than the normal ones.
+- They usually are triggered by the interaction of the class or object, and not by invocations.
+- Magic methods start with `__`
+- Some of the most used magic methods are - `__toString, __call, __get`.
