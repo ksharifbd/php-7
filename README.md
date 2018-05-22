@@ -517,3 +517,15 @@ var_dump($names[4]); // null and a PHP notice
 - They usually are triggered by the interaction of the class or object, and not by invocations.
 - Magic methods start with `__`
 - Some of the most used magic methods are - `__toString, __call, __get`.
+
+### Properties & Methods Visibility:
+
+- There are three types of visibility.
+  - `private`: This type allows access only to members of the same class. If A and B are instances of the class C, A can access the properties and methods of B.
+  - `protected`: This type allows access to members of the same class and instances from classes that inherit from that one only.
+  - `public`: This type refers to a property or method that is accessible from anywhere. Any classes or code in general from outside the class can access it.
+
+### Encapsulation:
+
+- Encapsulation tries to group the data of the object with its methods in an attempt to hide the internal structure of the object from the rest of the world.
+- The easiest way to implement this idea is by setting all the properties of the class as private and enabling two methods for each of the properties: one will get the current value (also known as getter), and the other will allow you to set a new value (known as setter). That's at least the most common and easy way to encapsulate data.
