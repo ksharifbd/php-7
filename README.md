@@ -529,3 +529,38 @@ var_dump($names[4]); // null and a PHP notice
 
 - Encapsulation tries to group the data of the object with its methods in an attempt to hide the internal structure of the object from the rest of the world.
 - The easiest way to implement this idea is by setting all the properties of the class as private and enabling two methods for each of the properties: one will get the current value (also known as getter), and the other will allow you to set a new value (known as setter). That's at least the most common and easy way to encapsulate data.
+
+### Static Properties and Methods:
+
+- PHP allows to have properties and methods linked to the class itself rather than to the object. These properties and methods are defined with the keyword static.
+- when referring to a static property, `self::` is used instead of `$this`, which is not tied to any instance but to the class itself.
+- Static properties and methods can be referred by specifying the name of the class, followed by `::`, and the name of the property/method.
+
+#### Example:
+```
+  private static $lastId = 0;
+
+  public static function getLastId(): int {
+    return self::$lastId;
+  }
+
+  Customer::getLastId();
+  $customer1::getLastId();
+```
+
+### Namespaces:
+
+- Namespaces allows to use multiple classes with the same name.
+- Namespaces and the file path will usually be the same. (Enforced by developer, not by the language)
+- Specifying a namespace has to be the first thing in a file.
+- The namespacing is achieved by the `namespace` keyword followed by the namespace. Each section of the namespace is separated by `\`, as if it was a different directory. If the namespace is not specified, the class will belong to the base namespace, or root.
+- Keyword `use` allows to specify a full class name at the beginning of the file, and then use the simple name of the class in the rest of that file.
+- The keyword `as` sets an alias to the particular class
+
+#### Example:
+```
+  namespace Bookstore\Domain;
+
+  use Bookstore\Domain\Book;
+  use Library\Domain\Book as LibraryBook;
+```
