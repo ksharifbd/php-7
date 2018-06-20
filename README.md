@@ -133,8 +133,8 @@ There 9 types of comparison operators
   * Evaluates two expressions *after* type juggling.
 - Identical (===)
   * evaluates two expressions *without* type juggling
-- Not Equals To (<> or !==)
-- Not Identical (!===)
+- Not Equals To (<> or !=)
+- Not Identical (!==)
   
 #### Example:
 ```php
