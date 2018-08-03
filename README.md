@@ -564,3 +564,39 @@ var_dump($names[4]); // null and a PHP notice
   use Bookstore\Domain\Book;
   use Library\Domain\Book as LibraryBook;
 ```
+
+### Autoloading Classes:
+- For loading several classes in several files Autoloading is the way.
+- Autoloading is a PHP feature that allows your program to search and load files automatically given some set of predefined rules. Each time you reference a class that PHP does not know about, it will ask the autoloader. If the autoloader can figure out which file that class is in, it will load it, and the execution of the program will continue as normal. If it does not, PHP will stop the execution.
+- There are two ways of implementing an autoloader: the `__autoload function` and the `spl_autoload_register`.
+
+### Using the __autoload function:
+- Defining a function named __autoload tells PHP that the function is the autoloader that it must use.
+
+#### Example:
+```
+function __autoload($classname) {
+  $lastSlash = strpos($classname, '\\') + 1;
+  $classname = substr($classname, $lastSlash);
+  $directory = str_replace('\\', '/', $classname);
+  $filename = __DIR__ . '/' . $directory . '.php';
+  require_once($filename);
+}
+```
+
+### Using the spl_autoload_register function:
+- What if there are multiple `__autoload` functions?
+- PHP needs to be told to keep a list of possible implementations of the autoloader, so it can try all of them until one works.
+- `spl_autoload_register` can be called multiple times.
+
+#### Example:
+```
+function autoloader($classname) {
+  $lastSlash = strpos($classname, '\\') + 1;
+  $classname = substr($classname, $lastSlash);
+  $directory = str_replace('\\', '/', $classname);
+  $filename = __DIR__ . '/' . $directory . '.php';
+  require_once($filename);
+}
+spl_autoload_register('autoloader');
+```
