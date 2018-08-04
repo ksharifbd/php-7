@@ -663,3 +663,47 @@ class Customer extends Person {
   }
 }
 ```
+
+### Method Overriding:
+- If a child class implements a method having same name or signature as in the parent class, then it's called `method overriding`.
+- When overriding, the child method has to have at least as much visibility as the one inherited. That means that if we inherit a protected one, we can override it with another protected or a public one, but never with a private one.
+
+#### Example:
+```php
+  // Example-1
+  class Pops {
+    public function sayHi() {
+      echo "Hi, I am pops.";
+    }
+  }
+  
+  class Child extends Pops{
+    public function sayHi() {
+    echo "Hi, I am a child.";
+    }
+  }
+  
+  $pops = new Pops();
+  $child = new Child();
+  
+  echo $pops->sayHi(); // Hi, I am pops.
+  echo $child->sayHi(); // Hi, I am Child.
+  
+  // Example-2
+  class Child extends Pops{
+    public function sayHi() {
+      echo "Hi, I am a child.";
+      parent::sayHi();
+    }
+  }
+  
+  $child = new Child();
+  echo $child->sayHi(); // Hi, I am Child. Hi I am pops.
+  
+  // Example-3 - This will throw error
+  class Child extends Pops{
+    protected function sayHi() {
+      echo "Hi, I am a child.";
+    }
+  }
+```
