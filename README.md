@@ -537,7 +537,7 @@ var_dump($names[4]); // null and a PHP notice
 - Static properties and methods can be referred by specifying the name of the class, followed by `::`, and the name of the property/method.
 
 #### Example:
-```
+```php
   private static $lastId = 0;
 
   public static function getLastId(): int {
@@ -599,4 +599,67 @@ function autoloader($classname) {
   require_once($filename);
 }
 spl_autoload_register('autoloader');
+```
+
+### Inheritance:
+- Inheritance in OOP is the ability to pass the implementation of the class from parents to children.
+- the technical way of referring to this feature is that a class `extends` from another class.
+- When extending a class, all the properties and methods are available that are not defined as private, and the child class can use them as if they were its own.
+- The limitation is that a class can only extend from one parent.
+- To force PHP to use the parent's method, use the keyword parent:: instead of $this.
+
+#### Example:
+```php
+class Person {
+  protected $firstname;
+  protected $surname;
+  public function __construct(string $firstname, string $surname) {
+    $this->firstname = $firstname;
+    $this->surname = $surname;
+  }
+  public function getFirstname(): string {
+    return $this->firstname;
+  }
+  public function getSurname(): string {
+    return $this->surname;
+  }
+}
+
+class Customer extends Person {
+  private static $lastId = 0;
+  private $id;
+  private $email;
+  
+  parent::__construct($firstname, $surname);
+  
+  if (empty($id)) {
+    $this->id = ++self::$lastId;
+  } else {
+    $this->id = $id;
+    if ($id > self::$lastId) {
+      self::$lastId = $id;
+     }
+  }
+
+  $this->name = $name;
+  $this->surname = $surname;
+  $this->email = $email;
+  
+  
+  public static function getLastId(): int {
+    return self::$lastId;
+  }
+  
+  public function getId(): int {
+    return $this->id;
+  }
+  
+  public function getEmail(): string {
+    return $this->email;
+  }
+  
+  public function setEmail($email): string {
+    $this->email = $email;
+  }
+}
 ```
