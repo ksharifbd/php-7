@@ -590,7 +590,7 @@ function __autoload($classname) {
 - `spl_autoload_register` can be called multiple times.
 
 #### Example:
-```
+```php
 function autoloader($classname) {
   $lastSlash = strpos($classname, '\\') + 1;
   $classname = substr($classname, $lastSlash);
