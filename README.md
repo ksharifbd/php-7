@@ -800,3 +800,126 @@ class Customer extends Person {
   Mr. Pacman
   Mrs. Pacwoman
 ```
+
+### Interfaces:
+- An interface is an OOP element that groups a set of function declarations without implementing them, that is, it specifies the name, return type, and arguments, but not the block of code.
+- Interfaces are different from abstract classes, since they cannot contain any implementation at all, whereas abstract classes could mix both method definitions and implemented ones.
+- The purpose of interfaces is to state what a class can do, but not how it is done.
+- it is defined with the keyword `interface`.
+- Interfaces cannot be instantiated, since their methods are not implemented as with abstract classes.
+- All methods declared in an interface must be public.
+- To implement an interface, the `implements` operator is used.
+- Classes may implement more than one interface if desired by separating each interface with a comma.
+- Only interface can be extended by other interface.
+
+### Example:
+```php
+  // Example-1
+  
+  // Declare the interface 'iTemplate'
+  interface iTemplate
+  {
+      public function setVariable($name, $var);
+      public function getHtml($template);
+  }
+
+  // Implement the interface
+  // This will work
+  class Template implements iTemplate
+  {
+      private $vars = array();
+
+      public function setVariable($name, $var)
+      {
+          $this->vars[$name] = $var;
+      }
+
+      public function getHtml($template)
+      {
+          foreach($this->vars as $name => $value) {
+              $template = str_replace('{' . $name . '}', $value, $template);
+          }
+
+          return $template;
+      }
+  }
+
+  // This will not work
+  // Fatal error: Class BadTemplate contains 1 abstract methods
+  // and must therefore be declared abstract (iTemplate::getHtml)
+  class BadTemplate implements iTemplate
+  {
+      private $vars = array();
+
+      public function setVariable($name, $var)
+      {
+          $this->vars[$name] = $var;
+      }
+  }
+  
+  // Example - 2 :: Extendable Interfaces
+  interface a
+  {
+      public function foo();
+  }
+
+  interface b extends a
+  {
+      public function baz(Baz $baz);
+  }
+
+  // This will work
+  class c implements b
+  {
+      public function foo()
+      {
+      }
+
+      public function baz(Baz $baz)
+      {
+      }
+  }
+
+  // This will not work and result in a fatal error
+  class d implements b
+  {
+      public function foo()
+      {
+      }
+
+      public function baz(Foo $foo)
+      {
+      }
+  }
+  
+  // Example -3 :: Multiple interface inheritance
+  interface a
+  {
+      public function foo();
+  }
+
+  interface b
+  {
+      public function bar();
+  }
+
+  interface c extends a, b
+  {
+      public function baz();
+  }
+
+  class d implements c
+  {
+      public function foo()
+      {
+      }
+
+      public function bar()
+      {
+      }
+
+      public function baz()
+      {
+      }
+  }
+```
