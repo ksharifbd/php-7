@@ -923,3 +923,8 @@ class Customer extends Person {
       }
   }
 ```
+
+### Polymorphism:
+- Polymorphism describes a pattern in object oriented programming in which classes have different functionality while sharing a common interface.
+- Polymorphism is used to make applications more modular and extensible.
+- Instead of messy conditional statements describing different courses of action, interchangeable objects are created that are selected based on the needs. That is the basic goal of polymorphism.
